@@ -9,6 +9,7 @@ class LinkedList:
         # linked list head
         self.head: Node = None
 
+
     """
         Prints list starting from the list's head
 
@@ -28,6 +29,7 @@ class LinkedList:
             current = current.nextNode
         print('None')
 
+
     """
         Adds item at the beginning of the list
 
@@ -46,6 +48,7 @@ class LinkedList:
             newNode: Node = Node(data)
             newNode.nextNode = self.head
             self.head = newNode
+
 
     """
         Adds item at the end of the list
@@ -87,6 +90,34 @@ class LinkedList:
             currentNode = saveNext
         
         self.head = None
+
+
+    """
+        Delete specific value
+
+        @params:
+            value (any): value to be deleted
+        @return: None
+    """
+    def deleteValue(self, value):
+        if (self.head == None):
+            return
+        
+        if (self.head.data == value):
+            self.head = self.head.nextNode
+
+        savePrev: Node = None
+        current: Node = self.head
+
+        while (current != None):
+            if (current.data == value):
+                savePrev.nextNode = current.nextNode
+                del current
+                return
+
+            savePrev = current
+            current = current.nextNode
+
     
     """
         Find a value in the list and return its node
@@ -106,6 +137,7 @@ class LinkedList:
             current = current.nextNode
 
         return None
+
 
     """
         Create linked list from array

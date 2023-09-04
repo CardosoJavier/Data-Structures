@@ -3,13 +3,12 @@ from Node import Node
 
 if __name__ == "__main__":
     myList: LinkedList = LinkedList()
-
-    myArr: list = [1,2,3,4,5]
-    myList.listToLinkedList(myArr)
+    myList.addLast(1)
+    myList.addLast(2)
+    myList.addLast(3)
+    myList.addLast(4)
+    myList.addLast(5)
 
     myList.printFromHead()
-
-    val: int = 8
-    searchVal: Node = myList.findValue(val)
-    
-    print("Not in list") if searchVal == None else print(f"searchVal with value {val} is at {searchVal}")
+    myList.deleteValue(1)
+    myList.printFromHead()
